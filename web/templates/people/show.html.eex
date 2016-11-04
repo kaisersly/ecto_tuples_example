@@ -1,0 +1,13 @@
+<h2>Show people</h2>
+
+<ul>
+
+  <li>
+    <strong>First name:</strong>
+    <%= @people.first_name %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: people_path(@conn, :edit, @people) %>
+<%= link "Back", to: people_path(@conn, :index) %>

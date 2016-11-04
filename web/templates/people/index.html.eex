@@ -1,0 +1,26 @@
+<h2>Listing people</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>First name</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for people <- @people do %>
+    <tr>
+      <td><%= people.first_name %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: people_path(@conn, :show, people), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: people_path(@conn, :edit, people), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: people_path(@conn, :delete, people), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New people", to: people_path(@conn, :new) %>
